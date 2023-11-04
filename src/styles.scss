@@ -95,6 +95,14 @@ img {
     height: 32px;
     margin-top: 4px;
   }
+
+  .svg-icon use:nth-child(1) {
+    display: inline;
+  }
+
+  .svg-icon use:nth-child(2) {
+    display: none;
+  }
 }
 
 .btn {
