@@ -39,6 +39,13 @@ class ProductDetail extends Component {
 
     if (isInCart) this._setInCart();
 
+    const isFavorite = await favoritesService.isInFavorites(this.product);
+    if (isFavorite) {
+      this._setInFavorites();
+    } else {
+      this._setNotInFavorites();
+    }
+
     fetch(`/api/getProductSecretKey?id=${id}`)
       .then((res) => res.json())
       .then((secretKey) => {
