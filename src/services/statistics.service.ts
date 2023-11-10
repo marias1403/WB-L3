@@ -2,6 +2,7 @@ import {ProductData} from "../../types";
 
 const TYPE_ROUTE = 'route';
 const TYPE_VIEW_CARD = 'viewCard';
+const TYPE_VIEW_CARD_PROMO = 'viewCardPromo';
 const TYPE_ADD_TO_CART = 'addToCart';
 const TYPE_PURCHASE = 'purchase';
 
@@ -12,8 +13,15 @@ class StatisticsService {
     });
   }
 
-  async sendViewCardStats(data: ProductData, secretKey: string) {
+  async sendViewCardStats(data: ProductData, secretKey: any) {
     return this._sendStats(TYPE_VIEW_CARD, {
+      ...data,
+      secretKey: secretKey
+    });
+  }
+
+  async sendViewCardPromoStats(data: ProductData, secretKey: any) {
+    return this._sendStats(TYPE_VIEW_CARD_PROMO, {
       ...data,
       secretKey: secretKey
     });
@@ -23,7 +31,7 @@ class StatisticsService {
     return this._sendStats(TYPE_ADD_TO_CART, data);
   }
 
-  async sendPurchaseStats(orderId: number, totalPrice: number, productIds: number[]) {
+  async sendPurchaseStats(orderId: string, totalPrice: number, productIds: number[]) {
     return this._sendStats(TYPE_PURCHASE, {
       orderId: orderId,
       totalPrice: totalPrice,
