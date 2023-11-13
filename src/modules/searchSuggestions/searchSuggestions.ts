@@ -14,7 +14,7 @@ class SearchSuggestions extends Component {
     return [
       'чехол iphone 13 pro',
       'коляски agex',
-      'яндекс станция 2',
+      'яндекс станция 2'
     ];
   }
 
@@ -28,7 +28,7 @@ class SearchSuggestions extends Component {
     }
 
     suggestions.forEach((suggestion: string, idx ) => {
-      if (idx !== suggestions.length - 1) {
+      if (idx !== suggestions.length - 1 || suggestions.length === 1) {
         this.addSplitter(',' + String.fromCharCode(160));
       } else {
         this.addSplitter(String.fromCharCode(160) + 'или' + String.fromCharCode(160));
