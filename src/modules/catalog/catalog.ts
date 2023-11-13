@@ -1,7 +1,6 @@
 import { Component } from '../component';
 import html from './catalog.tpl.html';
 import { ProductList } from '../productList/productList';
-import { userService } from '../../services/user.service';
 
 class Catalog extends Component {
   productList: ProductList;
