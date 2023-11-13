@@ -31,14 +31,15 @@ class Checkout extends Component {
   }
 
   private async _makeOrder() {
-    await cartService.clear();
     const orderId = genUUID();
     const totalPrice = this.products.reduce((acc, product) => (acc += product.salePriceU), 0);
     const productIds = this.products.map(product => product.id);
-    statisticsService.sendPurchaseStats(orderId, totalPrice, productIds);
+    await cartService.clear();
     fetch('/api/makeOrder', {
       method: 'POST',
       body: JSON.stringify(this.products)
+    }).then(() => {
+      statisticsService.sendPurchaseStats(orderId, totalPrice, productIds);
     });
     window.location.href = '/?isSuccessOrder';
   }
