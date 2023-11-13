@@ -1,0 +1,17 @@
+.searchSuggestions {
+  max-width: 900px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  row-gap: 5px;
+
+  &__text {
+    color: #000000;
+    font-family: Arial, sans-serif;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+  }
+}

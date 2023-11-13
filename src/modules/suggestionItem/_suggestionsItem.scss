@@ -1,0 +1,21 @@
+.suggestionItem {
+  display: flex;
+  padding: 4px 6px 8px 6px;
+  align-items: flex-start;
+  gap: 10px;
+  border-radius: 8px;
+  background: #F6F6FA;
+
+  &__text {
+    font-family: Arial, sans-serif;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    text-transform: lowercase;
+    background: linear-gradient(93deg, #DA15B8 4.93%, #8D06CC 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
