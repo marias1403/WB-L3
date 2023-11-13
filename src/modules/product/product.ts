@@ -62,9 +62,9 @@ export class Product {
       const logField = this.product.log;
       const secretKey = this._getProductSecretKey(this.product.id);
       if (Object.keys(logField).length === 0) {
-        statisticsService.sendViewCardPromoStats(this.product, secretKey);
-      } else {
         statisticsService.sendViewCardStats(this.product, secretKey);
+      } else {
+        statisticsService.sendViewCardPromoStats(this.product, secretKey);
       }
     }
   }
