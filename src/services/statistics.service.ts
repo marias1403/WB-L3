@@ -1,4 +1,4 @@
-import {ProductData} from "../../types";
+import { ProductData } from "../../types";
 
 const TYPE_ROUTE = 'route';
 const TYPE_VIEW_CARD = 'viewCard';
@@ -7,31 +7,31 @@ const TYPE_ADD_TO_CART = 'addToCart';
 const TYPE_PURCHASE = 'purchase';
 
 class StatisticsService {
-  async sendRouteStats(route: string) {
+  public async sendRouteStats(route: string) {
     return this._sendStats(TYPE_ROUTE, {
       url: route,
     });
   }
 
-  async sendViewCardStats(data: ProductData, secretKey: any) {
+  public async sendViewCardStats(data: ProductData, secretKey: any) {
     return this._sendStats(TYPE_VIEW_CARD, {
       ...data,
       secretKey: secretKey
     });
   }
 
-  async sendViewCardPromoStats(data: ProductData, secretKey: any) {
+  public async sendViewCardPromoStats(data: ProductData, secretKey: any) {
     return this._sendStats(TYPE_VIEW_CARD_PROMO, {
       ...data,
       secretKey: secretKey
     });
   }
 
-  async sendAddToCartStats(data: ProductData) {
+  public async sendAddToCartStats(data: ProductData) {
     return this._sendStats(TYPE_ADD_TO_CART, data);
   }
 
-  async sendPurchaseStats(orderId: string, totalPrice: number, productIds: number[]) {
+  public async sendPurchaseStats(orderId: string, totalPrice: number, productIds: number[]) {
     return this._sendStats(TYPE_PURCHASE, {
       orderId: orderId,
       totalPrice: totalPrice,
